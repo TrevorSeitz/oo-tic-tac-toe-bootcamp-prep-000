@@ -92,6 +92,7 @@ def winner
     else
       return nil
     end
+  end
 #   if won? == false
 #     nil
 #   else
