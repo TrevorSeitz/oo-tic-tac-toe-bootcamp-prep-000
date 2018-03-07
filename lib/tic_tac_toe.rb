@@ -116,7 +116,7 @@ def turn
     move(index, current_player)
     display_board
   else
-    turn
+    @board.turn
   end
 end
 
@@ -126,7 +126,7 @@ end
 
 def play(board)
   while !over? && !draw?
-    turn
+    @board.turn
   end
   if won?
     puts "Congratulations #{winner}!"
