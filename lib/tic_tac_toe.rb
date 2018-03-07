@@ -67,21 +67,21 @@ end
 #   end
 # end
 
-def won?(board)
+def won?
   WIN_COMBINATIONS.detect do |win_combo|
     if (@board[win_combo[0]]) == "X" && (@board[win_combo[1]]) == "X" && (@board[win_combo[2]]) == "X"
       winning_player = "X"
-      return win_combo(board)
+      return win_combo
     elsif (@board[win_combo[0]]) == "O" && (@board[win_combo[1]]) == "O" && (@board[win_combo[2]]) == "O"
       winning_player = "O"
-      return win_combo(board)
+      return win_combo
     else
       false
     end
   end
 end
 
-def winner(board)
+def winner
   WIN_COMBINATIONS.detect do |win_combo|
     if (@board[win_combo[0]]) == "X" && (@board[win_combo[1]]) == "X" && (@board[win_combo[2]]) == "X"
       return "X"
@@ -109,28 +109,28 @@ def valid_move?(index)
   index.between?(0, 8) && !position_taken?(index)
 end
 
-def turn(board)
+def turn
   puts "Please enter 1-9:"
   index = input_to_index(gets.strip)
   if valid_move?(index)
     move(index, current_player)
-    display_board(board)
+    display_board
   else
-    turn(board)
+    turn
   end
 end
 
-def current_player(board)
+def current_player
   turn_count.even? ? "X" : "O"
 end
 
 def play(board)
   while !over? && !draw?
-    turn(board)
+    turn
   end
-  if won?(board)
+  if won?
     puts "Congratulations #{winner}!"
-  elsif draw?(board)
+  elsif draw?
     puts "Cat's Game!"
   end
 end
