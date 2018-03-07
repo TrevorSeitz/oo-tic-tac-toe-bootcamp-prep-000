@@ -124,9 +124,9 @@ def current_player
   turn_count.even? ? "X" : "O"
 end
 
-def play(board)
+def play
   while !over? && !draw?
-    @board.turn
+    turn
   end
   if won?
     puts "Congratulations #{winner}!"
