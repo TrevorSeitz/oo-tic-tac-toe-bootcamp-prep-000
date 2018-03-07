@@ -52,6 +52,7 @@ def draw?
       true
     else
       false
+    end
   end
 end
 
