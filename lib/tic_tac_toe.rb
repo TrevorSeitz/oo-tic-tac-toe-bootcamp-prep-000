@@ -75,8 +75,9 @@ def won?
     elsif (@board[win_combo[0]]) == "O" && (@board[win_combo[1]]) == "O" && (@board[win_combo[2]]) == "O"
       winning_player = "O"
       return win_combo
-    end
+    else
       false
+    end
   end
 end
 
