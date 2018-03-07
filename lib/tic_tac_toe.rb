@@ -35,6 +35,11 @@ def input_to_index(user_input)
   user_input.to_i - 1
 end
 
+def full?  @board.all? do |position|
+    position == "X" || position == "O"
+  end
+end
+
 def over?
   full? || won?
   # full?(board) || won?(board)
