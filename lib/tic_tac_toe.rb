@@ -59,7 +59,7 @@ end
 
 def won?
   WIN_COMBINATIONS.detect do |win_combo|
-    if @board[win_combo[0]] == @board[win_combo[1]] && @board[win_combo[0]] == @board[win_combo[2]] && position_taken?(@board, win_combo[1])
+    if @board[win_combo[0]] == @board[win_combo[1]] && @board[win_combo[0]] == @board[win_combo[2]]
       return win_combo
     # else
     #   draw?
