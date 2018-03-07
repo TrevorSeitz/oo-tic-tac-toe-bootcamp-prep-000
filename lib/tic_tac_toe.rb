@@ -124,7 +124,7 @@ def current_player
   turn_count.even? ? "X" : "O"
 end
 
-def play
+def play(board)
   while !over? && !draw?
     turn
   end
