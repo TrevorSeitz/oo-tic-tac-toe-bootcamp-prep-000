@@ -84,7 +84,8 @@ end
 def winner
   WIN_COMBINATIONS.detect do |win_combo|
     if (@board[win_combo[0]]) == "X" && (@board[win_combo[1]]) == "X" && (@board[win_combo[2]]) == "X"
-      # winning_player = "X"
+      winning_player = "X"
+      binding.pry
       return @board[win_combo[0]]
     elsif (@board[win_combo[0]]) == "O" && (@board[win_combo[1]]) == "O" && (@board[win_combo[2]]) == "O"
       # winning_player = "O"
