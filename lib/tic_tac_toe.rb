@@ -47,5 +47,29 @@ def valid_move?(board, index)
   index.between?(0, 8) && !position_taken?(board, index)
 end
 
+def turn(board)
+  puts "Please enter 1-9:"
+  index = input_to_index(gets.strip)
+  if valid_move?(board, index)
+    move(board, index, current_player(board))
+    display_board(board)
+  else
+    turn(board)
+  end
+end
 
+def current_player(board)
+  turn_count(board).even? ? "X" : "O"
+end
+
+def play(board)
+  while !over?(board) && !draw?(board)
+    turn(board)
+  end
+  if won?(board)
+    puts "Congratulations #{winner(board)}!"
+  elsif draw?(board)
+    puts "Cat's Game!"
+  end
+end
 end
