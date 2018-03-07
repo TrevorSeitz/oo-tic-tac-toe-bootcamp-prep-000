@@ -88,7 +88,7 @@ def winner
   if won? == false
     nil
   else
-    return @board[won?[0]]
+    @board[won?[0]]
   end
 end
 
