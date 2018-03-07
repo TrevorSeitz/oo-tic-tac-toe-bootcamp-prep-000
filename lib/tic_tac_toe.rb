@@ -39,7 +39,6 @@ end
 def full?
   # @board.all? {|position| position == "X" || position == "O"}
   @board.all?{|occupied| occupied != " "}
-  binding.pry
 end
 
 def over?
