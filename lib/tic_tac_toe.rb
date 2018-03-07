@@ -37,6 +37,7 @@ end
 
 def full?
   # @board.all? {|position| position == "X" || position == "O"}
+  binding.pry
   @board.all?{|occupied| occupied != " "}
 end
 
@@ -48,10 +49,10 @@ end
 def draw?
   # (full?) && !(won?)
   if full?
-    if !won?
-      true
-    else
+    if won?
       false
+    else
+      true
     end
   end
 end
