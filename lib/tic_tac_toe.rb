@@ -49,8 +49,8 @@ def winner(board)
   end
 end
 
-def move(board, index, current_player)
-    board[index] = current_player
+def move(position, current_player)
+    @board[position] = current_player
 end
 
 def position_taken?(board, index)
