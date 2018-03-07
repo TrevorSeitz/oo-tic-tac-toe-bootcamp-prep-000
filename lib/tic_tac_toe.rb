@@ -17,7 +17,7 @@ class TicTacToe
 
   winning_player = "X"
 
-def display_board
+def display_board(board)
   puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
   puts "-----------"
   puts " #{@board[3]} | #{@board[4]} | #{@board[5]} "
@@ -25,11 +25,11 @@ def display_board
   puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
 end
 
-def current_player
+def current_player(board)
   turn_count % 2 == 0 ? "X" : "O"
 end
 
-def turn_count
+def turn_count(board)
   @board.count{|token| token == "X" || token == "O"}
 end
 
@@ -37,20 +37,20 @@ def input_to_index(user_input)
   user_input.to_i - 1
 end
 
-def full?
+def full?(board)
   # @board.all? {|position| position == "X" || position == "O"}
   @board.all?{|occupied| occupied != " "}
 end
 
-def over?
-  full? || won?
+def over?(board)
+  full?(board) || won?(board)
   # full?(board) || won?(board)
 end
 
-def draw?
+def draw?(board)
   # (full?) && !(won?)
-  if full?
-    if won?
+  if full?(board)
+    if won?(board)
       false
     else
       true
@@ -67,21 +67,21 @@ end
 #   end
 # end
 
-def won?
+def won?(board)
   WIN_COMBINATIONS.detect do |win_combo|
     if (@board[win_combo[0]]) == "X" && (@board[win_combo[1]]) == "X" && (@board[win_combo[2]]) == "X"
       winning_player = "X"
-      return win_combo
+      return win_combo(board)
     elsif (@board[win_combo[0]]) == "O" && (@board[win_combo[1]]) == "O" && (@board[win_combo[2]]) == "O"
       winning_player = "O"
-      return win_combo
+      return win_combo(board)
     else
       false
     end
   end
 end
 
-def winner
+def winner(board)
   WIN_COMBINATIONS.detect do |win_combo|
     if (@board[win_combo[0]]) == "X" && (@board[win_combo[1]]) == "X" && (@board[win_combo[2]]) == "X"
       return "X"
@@ -114,13 +114,13 @@ def turn(board)
   index = input_to_index(gets.strip)
   if valid_move?(index)
     move(index, current_player)
-    display_board
+    display_board(board)
   else
-    turn
+    turn(board)
   end
 end
 
-def current_player
+def current_player(board)
   turn_count.even? ? "X" : "O"
 end
 
@@ -128,9 +128,9 @@ def play(board)
   while !over? && !draw?
     turn(board)
   end
-  if won?
+  if won?(board)
     puts "Congratulations #{winner}!"
-  elsif draw?
+  elsif draw?(board)
     puts "Cat's Game!"
   end
 end
