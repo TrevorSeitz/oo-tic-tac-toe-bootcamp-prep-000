@@ -1,6 +1,6 @@
 require 'pry'
 class TicTacToe
-
+  
   def initialize(board = nil)
     @board = board || Array.new(9, " ")
   end
@@ -14,7 +14,8 @@ class TicTacToe
   [2, 5, 8],
   [0, 4, 8],
   [2, 4, 6]]
-# end
+
+  winning_player = "X"
 
 def display_board
   puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
@@ -78,9 +79,10 @@ def won?
 end
 
 def winner
-  if won?.kind_of?(Array)
-    board[won?[0]]
-  end
+  # if won?.kind_of?(Array)
+  #   board[won?[0]]
+  # end
+  winning_player
 end
 
 def move(position, current_player)
