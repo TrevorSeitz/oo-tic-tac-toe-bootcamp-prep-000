@@ -25,11 +25,11 @@ def display_board
   puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
 end
 
-def current_player(board)
+def current_player
   turn_count % 2 == 0 ? "X" : "O"
 end
 
-def turn_count(board)
+def turn_count
   @board.count{|token| token == "X" || token == "O"}
 end
 
@@ -37,20 +37,20 @@ def input_to_index(user_input)
   user_input.to_i - 1
 end
 
-def full?(board)
+def full?
   # @board.all? {|position| position == "X" || position == "O"}
   @board.all?{|occupied| occupied != " "}
 end
 
-def over?(board)
-  full?(board) || won?(board)
+def over?
+  full? || won?
   # full?(board) || won?(board)
 end
 
-def draw?(board)
+def draw?
   # (full?) && !(won?)
-  if full?(board)
-    if won?(board)
+  if full?
+    if won?
       false
     else
       true
