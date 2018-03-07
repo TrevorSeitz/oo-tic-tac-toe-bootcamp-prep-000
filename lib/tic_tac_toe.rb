@@ -77,8 +77,12 @@ def move(position, current_player)
     @board[position] = current_player
 end
 
-def position_taken?(index)
-  ((@board[index] != " ") && (@board[index] != ""))
+# def position_taken?(index)
+#   ((@board[index] != " ") && (@board[index] != ""))
+# end
+
+def position_taken?(index_i)
+  ((@board[index_i] == "X") || (@board[index_i] == "O"))
 end
 
 def valid_move?(index)
