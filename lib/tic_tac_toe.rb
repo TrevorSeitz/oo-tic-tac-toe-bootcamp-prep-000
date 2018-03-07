@@ -86,7 +86,7 @@ def winner
     #   board[won?[0]]
     # end
   if won? == false
-    return nil
+    nil
   else
     return @board[won?[0]]
   end
