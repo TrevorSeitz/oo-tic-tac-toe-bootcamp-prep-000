@@ -126,7 +126,7 @@ end
 
 def play(board)
   while !over? && !draw?
-    turn(@board)
+    turn(board)
   end
   if won?
     puts "Congratulations #{winner}!"
