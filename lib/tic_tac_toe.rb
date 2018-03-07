@@ -45,8 +45,8 @@ def draw?
 end
 
 def winner
-  if won?(board).kind_of?(Array)
-    board[won?(board)[0]]
+  if won?.kind_of?(Array)
+    board[won?[0]]
   end
 end
 
@@ -54,36 +54,36 @@ def move(position, current_player)
     @board[position] = current_player
 end
 
-def position_taken?(board, index)
-  board[index] != " " && board[index] != ""
+def position_taken?(index)
+  @board[index] != " " && @board[index] != ""
 end
 
-def valid_move?(board, index)
-  index.between?(0, 8) && !position_taken?(board, index)
+def valid_move?(index)
+  index.between?(0, 8) && !position_taken?(index)
 end
 
-def turn(board)
+def turn
   puts "Please enter 1-9:"
   index = input_to_index(gets.strip)
-  if valid_move?(board, index)
-    move(board, index, current_player(board))
-    display_board(board)
+  if valid_move?(index)
+    move(board, index, current_player)
+    display_board
   else
-    turn(board)
+    turn
   end
 end
 
-def current_player(board)
-  turn_count(board).even? ? "X" : "O"
+def current_player
+  turn_count.even? ? "X" : "O"
 end
 
-def play(board)
-  while !over?(board) && !draw?(board)
-    turn(board)
+def play
+  while !over? && !draw?
+    turn
   end
-  if won?(board)
-    puts "Congratulations #{winner(board)}!"
-  elsif draw?(board)
+  if won?
+    puts "Congratulations #{winner}!"
+  elsif draw?
     puts "Cat's Game!"
   end
 end
