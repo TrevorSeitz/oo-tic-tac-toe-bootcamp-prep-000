@@ -46,7 +46,8 @@ def over?
 end
 
 def draw?
-  (full?) && !(won?)
+  # (full?) && !(won?)
+  !(won?) && (full?)
 end
 
 def won?
