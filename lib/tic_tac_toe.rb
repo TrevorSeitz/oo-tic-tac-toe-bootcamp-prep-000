@@ -81,7 +81,7 @@ end
 #   ((@board[index] != " ") && (@board[index] != ""))
 # end
 
-def position_taken?(index_i)
+def position_taken?(index_i, junk)
   ((@board[index_i] == "X") || (@board[index_i] == "O"))
 end
 
