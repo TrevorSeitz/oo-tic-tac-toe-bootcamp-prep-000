@@ -51,9 +51,9 @@ end
 
 def won?
   WIN_COMBINATIONS.detect do |win_combo|
+  binding.pry
     if @board[win_combo[0]] == @board[win_combo[1]] && @board[win_combo[0]] == @board[win_combo[2]] && position_taken?(@board, win_combo[1])
       return win_combo
-      binding.pry
     else
       draw?
     end
