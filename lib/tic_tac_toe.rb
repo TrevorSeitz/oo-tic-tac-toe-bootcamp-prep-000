@@ -76,7 +76,7 @@ def won?
       winning_player = "O"
       return win_combo
     else
-      return false
+      false
     end
   end
 end
