@@ -35,6 +35,20 @@ def input_to_index(user_input)
   user_input.to_i - 1
 end
 
+def over?(board)
+  full?(board) || won?(board)
+end
+
+def draw?(board)
+  full?(board) && !won?(board)
+end
+
+def winner(board)
+  if won?(board).kind_of?(Array)
+    board[won?(board)[0]]
+  end
+end
+
 def move(board, index, current_player)
     board[index] = current_player
 end
