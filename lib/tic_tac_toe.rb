@@ -35,15 +35,16 @@ def input_to_index(user_input)
   user_input.to_i - 1
 end
 
-def over?(board)
-  full?(board) || won?(board)
+def over?
+  full? || won?
+  # full?(board) || won?(board)
 end
 
-def draw?(board)
-  full?(board) && !won?(board)
+def draw?
+  full? && !won?
 end
 
-def winner(board)
+def winner
   if won?(board).kind_of?(Array)
     board[won?(board)[0]]
   end
