@@ -82,14 +82,16 @@ def won?
 end
 
 def winner
-    # if won?.kind_of?(Array)
-    #   board[won?[0]]
-    # end
-  if won? == false
+  if @board[won?[0]] || @board[won?[1]] || @board[won?[2]]
     nil
   else
     @board[won?[0]]
   end
+#   if won? == false
+#     nil
+#   else
+#     @board[won?[0]]
+#   end
 end
 
 def move(position, current_player)
