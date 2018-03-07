@@ -35,33 +35,33 @@ def input_to_index(user_input)
   user_input.to_i - 1
 end
 
-def over?(@board)
+def over?(board)
   full?(board) || won?(board)
 end
 
-def draw?(@board)
+def draw?(board)
   full?(board) && !won?(board)
 end
 
-def winner(@board)
+def winner(board)
   if won?(board).kind_of?(Array)
     board[won?(board)[0]]
   end
 end
 
-def move(@board, index, current_player)
+def move(board, index, current_player)
     board[index] = current_player
 end
 
-def position_taken?(@board, index)
+def position_taken?(board, index)
   board[index] != " " && board[index] != ""
 end
 
-def valid_move?(@board, index)
+def valid_move?(board, index)
   index.between?(0, 8) && !position_taken?(board, index)
 end
 
-def turn(@board)
+def turn(board)
   puts "Please enter 1-9:"
   index = input_to_index(gets.strip)
   if valid_move?(board, index)
@@ -72,11 +72,11 @@ def turn(@board)
   end
 end
 
-def current_player(@board)
+def current_player(board)
   turn_count(board).even? ? "X" : "O"
 end
 
-def play(@board)
+def play(board)
   while !over?(board) && !draw?(board)
     turn(board)
   end
