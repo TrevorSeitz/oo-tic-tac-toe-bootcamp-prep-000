@@ -47,7 +47,12 @@ end
 
 def draw?
   # (full?) && !(won?)
-  !(won?) && (full?)
+  if full?
+    if !won?
+      true
+    else
+      false
+  end
 end
 
 def won?
