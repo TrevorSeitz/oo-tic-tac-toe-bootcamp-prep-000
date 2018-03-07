@@ -109,7 +109,7 @@ def valid_move?(index)
   index.between?(0, 8) && !position_taken?(index)
 end
 
-def turn
+def turn(@board)
   puts "Please enter 1-9:"
   index = input_to_index(gets.strip)
   if valid_move?(index)
