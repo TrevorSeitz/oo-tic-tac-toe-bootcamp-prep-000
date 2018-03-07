@@ -88,7 +88,6 @@ def winner
   if won? == false
     return nil
   else
-    binding.pry
     return @board[won?[0]]
   end
 end
