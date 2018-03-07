@@ -84,7 +84,7 @@ def winner
   # if won?.kind_of?(Array)
   #   board[won?[0]]
   # end
-  winning_player
+  return winning_player
 end
 
 def move(position, current_player)
